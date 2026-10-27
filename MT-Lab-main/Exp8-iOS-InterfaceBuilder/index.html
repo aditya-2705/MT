@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiment 8 - iOS Interface</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #e9edf3;
+      font-family: Arial, sans-serif;
+    }
+
+    .phone {
+      width: 320px;
+      min-height: 580px;
+      padding: 28px 22px;
+      background: white;
+      border: 8px solid #222;
+      border-radius: 38px;
+      box-shadow: 0 12px 35px #0002;
+    }
+
+    .status {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 45px;
+    }
+
+    .logo {
+      width: 65px;
+      height: 65px;
+      margin: auto;
+      display: grid;
+      place-items: center;
+      background: #007aff;
+      color: white;
+      border-radius: 18px;
+      font-size: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 27px;
+      margin: 22px 0 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin: 16px 0 7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d5d5da;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 24px;
+      background: #007aff;
+      color: white;
+      border: none;
+      border-radius: 11px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .footer {
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <main class="phone">
+    <div class="status">
+      <span>9:41</span>
+      <span>● ● ●  ▰</span>
+    </div>
+
+    <div class="logo">✦</div>
+
+    <h1>Welcome Back</h1>
+    <p class="subtitle">Sign in to continue</p>
+
+    <form onsubmit="event.preventDefault(); alert('Demo login submitted!');">
+      <label for="email">Email Address</label>
+      <input id="email" type="email"
+             placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input id="password" type="password"
+             placeholder="Enter your password" required>
+
+      <button type="submit">Sign In</button>
+    </form>
+
+    <p class="footer">iOS Interface Design · Experiment 8</p>
+  </main>
+</body>
+</html>

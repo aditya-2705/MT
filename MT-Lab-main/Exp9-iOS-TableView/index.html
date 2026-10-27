@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiment 9 - iOS Table View</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #e9edf3;
+      font-family: Arial, sans-serif;
+    }
+
+    .phone {
+      width: 340px;
+      min-height: 580px;
+      padding: 20px 0;
+      background: #f2f2f7;
+      border: 8px solid #222;
+      border-radius: 38px;
+      overflow: hidden;
+    }
+
+    .status {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 18px;
+      font-size: 12px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0 18px 20px;
+    }
+
+    .section-title {
+      margin: 0 18px 8px;
+      color: #6d6d72;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .table {
+      background: white;
+      border-top: 1px solid #dedee3;
+      border-bottom: 1px solid #dedee3;
+    }
+
+    .student {
+      display: flex;
+      align-items: center;
+      padding: 13px 14px;
+      gap: 12px;
+      border-bottom: 1px solid #e5e5ea;
+      cursor: pointer;
+    }
+
+    .student:last-child {
+      border-bottom: none;
+    }
+
+    .avatar {
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #dceaff;
+      color: #075ac7;
+      font-weight: bold;
+    }
+
+    .details {
+      flex: 1;
+    }
+
+    .name {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .course {
+      color: #777;
+      font-size: 12px;
+    }
+
+    .arrow {
+      color: #aaa;
+      font-size: 22px;
+    }
+
+    .note {
+      margin: 12px 18px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .tab {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 22px;
+      color: #007aff;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <main class="phone">
+    <div class="status">
+      <span>9:41</span>
+      <span>● ● ● ▰</span>
+    </div>
+
+    <h1>Students</h1>
+    <p class="section-title">My Class</p>
+
+    <div class="table">
+      <div class="student" onclick="showStudent('Aarav Sharma', 'MCA - Semester III')">
+        <div class="avatar">AS</div>
+        <div class="details">
+          <div class="name">akash singh</div>
+          <div class="course">MCA - Semester III</div>
+        </div>
+        <span class="arrow">›</span>
+      </div>
+
+      <div class="student" onclick="showStudent('Priya Patil', 'MCA - Semester III')">
+        <div class="avatar">PP</div>
+        <div class="details">
+          <div class="name">aditya dubile</div>
+          <div class="course">MCA - Semester III</div>
+        </div>
+        <span class="arrow">›</span>
+      </div>
+
+      <div class="student" onclick="showStudent('Rahul Joshi', 'MCA - Semester II')">
+        <div class="avatar">RJ</div>
+        <div class="details">
+          <div class="name">vinit jadhav</div>
+          <div class="course">MCA - Semester II</div>
+        </div>
+        <span class="arrow">›</span>
+      </div>
+      <div class="student" onclick="showStudent('Rahul Joshi', 'MCA - Semester II')">
+        <div class="avatar">RJ</div>
+        <div class="details">
+          <div class="name">tejas yawatmal</div>
+          <div class="course">MCA - Semester II</div>
+        </div>
+        <span class="arrow">›</span>
+      </div>
+
+      <div class="student" onclick="showStudent('Sneha Kulkarni', 'MCA - Semester III')">
+        <div class="avatar">SK</div>
+        <div class="details">
+          <div class="name">sangram patil</div>
+          <div class="course">MCA - Semester III</div>
+        </div>
+        <span class="arrow">›</span>
+      </div>
+    </div>
+
+    <p class="note">Tap a student to view their details.</p>
+
+    <div class="tab">
+      <span>● Students</span>
+      <span>⚙ Settings</span>
+    </div>
+  </main>
+
+  <script>
+    function showStudent(name, course) {
+      alert("Student: " + name + "\nCourse: " + course);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiment 10 - Student Notes</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #eef2f7;
+      font-family: Arial, sans-serif;
+    }
+
+    .app {
+      max-width: 480px;
+      margin: 30px auto;
+      padding: 24px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px #0001;
+    }
+
+    h1 {
+      color: #2457c5;
+      margin-top: 0;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ccd3df;
+      border-radius: 9px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    button {
+      padding: 11px 16px;
+      border: none;
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .add {
+      width: 100%;
+      background: #2457c5;
+      color: white;
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 14px;
+      background: #f4f6fb;
+      border-radius: 10px;
+      overflow-wrap: anywhere;
+    }
+
+    .note h3 {
+      margin: 0 0 8px;
+    }
+
+    .note p {
+      white-space: pre-wrap;
+      margin: 0 0 12px;
+      color: #555;
+    }
+
+    .delete {
+      background: #ffe7e7;
+      color: #a00000;
+    }
+
+    .empty {
+      text-align: center;
+      color: #777;
+      padding: 20px 0;
+    }
+
+    footer {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <h1>My Student Notes</h1>
+    <p class="subtitle">Write down your important study notes.</p>
+
+    <form id="noteForm">
+      <input id="title" type="text"
+             placeholder="Note title" required>
+      <textarea id="content"
+                placeholder="Write your note here..."
+                required></textarea>
+      <button class="add" type="submit">+ Add Note</button>
+    </form>
+
+    <section id="notes">
+      <p class="empty">No notes yet. Add your first note!</p>
+    </section>
+
+    <footer>Experiment 10 · Cross-Platform App Demo</footer>
+  </main>
+
+  <script>
+    const form = document.getElementById("noteForm");
+    const titleInput = document.getElementById("title");
+    const contentInput = document.getElementById("content");
+    const notesContainer = document.getElementById("notes");
+
+    let notes = [];
+
+    function renderNotes() {
+      notesContainer.replaceChildren();
+
+      if (notes.length === 0) {
+        const message = document.createElement("p");
+        message.className = "empty";
+        message.textContent = "No notes yet. Add your first note!";
+        notesContainer.appendChild(message);
+        return;
+      }
+
+      notes.forEach((note, index) => {
+        const card = document.createElement("article");
+        card.className = "note";
+
+        const heading = document.createElement("h3");
+        heading.textContent = note.title;
+
+        const paragraph = document.createElement("p");
+        paragraph.textContent = note.content;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete";
+        deleteButton.textContent = "Delete";
+
+        deleteButton.addEventListener("click", () => {
+          notes.splice(index, 1);
+          renderNotes();
+        });
+
+        card.append(heading, paragraph, deleteButton);
+        notesContainer.appendChild(card);
+      });
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      notes.push({
+        title: titleInput.value.trim(),
+        content: contentInput.value.trim()
+      });
+
+      renderNotes();
+      form.reset();
+      titleInput.focus();
+    });
+  </script>
+</body>
+</html>
+
